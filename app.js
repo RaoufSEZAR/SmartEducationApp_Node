@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const pageRoute = require("./routes/pageRoutes");
 const courseRoute = require("./routes/courseRoutes");
+const categoryRoute = require("./routes/categoryRoutes");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 //ROUTES
 app.use("/", pageRoute);
 app.use("/courses", courseRoute);
+app.use("/categories", categoryRoute);
 
 const port = 3000;
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

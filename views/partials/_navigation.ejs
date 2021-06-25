@@ -3,7 +3,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/">
-				<img src="images/logo.png" alt="" />
+				<img src="/images/logo.png" alt="" />
 			</a>
 			<button
 				class="navbar-toggler"
@@ -26,8 +26,8 @@
 					<li class="nav-item <%= page_name==='about' && 'active' %>">
 						<a class="nav-link" href="/about">About Us</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="courses.html">Courses</a>
+					<li class="nav-item <%= page_name==='courses' && 'active' %>">
+						<a class="nav-link" href="/courses">Courses</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="dashboard.html">Dashboard</a>
