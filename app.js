@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const session = require("express-session");
 
 const pageRoute = require("./routes/pageRoutes");
 const courseRoute = require("./routes/courseRoutes");
@@ -24,12 +25,26 @@ mongoose
 // Template engine
 app.set("view engine", "ejs");
 
+//Global veriable
+global.userIn = null;
+
 //middlewares
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+	session({
+		secret: "keyboard cat",
+		resave: false,
+		saveUninitialized: true,
+	})
+);
 
 //ROUTES
+app.use("*", (req, res, next) => {
+	userIn = req.session.userID;
+	next();
+});
 app.use("/", pageRoute);
 app.use("/courses", courseRoute);
 app.use("/categories", categoryRoute);
