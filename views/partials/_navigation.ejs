@@ -31,9 +31,10 @@
 					</li>
 					<%if(userIn){%>
 
-					<li class="nav-item">
-						<a class="nav-link" href="dashboard.html">Dashboard</a>
+					<li class="nav-item <%= page_name ==='dashboard' && 'active' %>">
+						<a class="nav-link" href="/users/dashboard">Dashboard</a>
 					</li>
+
 					<%}%>
 
 					<li class="nav-item <%= page_name==='contact' && 'active' %>">
@@ -88,7 +89,7 @@
 								%>
 								mr-2
 							"
-							href="/logout"
+							href="/users/logout"
 							><span><i class="fa fa-sign-out" aria-hidden="true"></i></span
 						></a>
 					</li>
