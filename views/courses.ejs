@@ -31,13 +31,14 @@ include('./partials/_navigation.ejs')%>
 									</h2>
 								</div>
 								<div class="course-desc">
-									<p><%= course.drscription%></p>
+									<p><%= course.description.substring(0,100) + "..."%></p>
 								</div>
 							</div>
 							<div class="course-meta-bot">
 								<ul>
 									<li>
-										<i class="fa fa-user" aria-hidden="true"></i>Teacher Name
+										<i class="fa fa-user" aria-hidden="true"></i>Teacher Name:
+										<%= course.user.name %>
 									</li>
 								</ul>
 							</div>
@@ -52,16 +53,16 @@ include('./partials/_navigation.ejs')%>
 			<div class="col-lg-3 col-12 right-single">
 				<div class="widget-search">
 					<div class="site-search-area">
-						<form method="get" id="site-searchform" action="#">
+						<form method="GET" id="site-searchform" action="/courses">
 							<div>
 								<input
 									class="input-text form-control"
-									name="search-k"
+									name="search"
 									id="search-k"
-									placeholder="Search keywords..."
+									placeholder="Search..."
 									type="text"
 								/>
-								<input id="searchsubmit" value="Search" type="submit" />
+								<button id="searchsubmit" value="Search" type="submit"></button>
 							</div>
 						</form>
 					</div>

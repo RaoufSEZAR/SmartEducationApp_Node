@@ -10,6 +10,7 @@ const courseSchema = new Schema({
 	},
 	slug: { type: String, unique: true },
 	category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+	user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
 courseSchema.pre("validate", function (next) {
