@@ -12,6 +12,11 @@ include('./partials/_navigation.ejs')%>
 					<form action="/users/login" method="POST">
 						<div class="row row-fluid">
 							<div class="offset-1 col-lg-10 col-md-10 col-sm-10">
+								<% if (flashMessages) { %> <% if (flashMessages.error) { %>
+								<div class="alert alert-danger"><%= flashMessages.error %></div>
+								<% } %> <% } %>
+							</div>
+							<div class="offset-1 col-lg-10 col-md-10 col-sm-10">
 								<input
 									type="email"
 									name="email"
