@@ -80,6 +80,13 @@ if(user) { %> <% if(user.role==='student' ) { %>
 					<span>CREATE NEW COURSE</span>
 				</button>
 			</div>
+			<div class="col-lg-12 blog-post-single mt-5">
+				<% if (flashMessages) { %> <% if (flashMessages.success) { %>
+				<div class="alert alert-success"><%= flashMessages.success %></div>
+				<% } else if (flashMessages.error) { %>
+				<div class="alert alert-danger"><%= flashMessages.error %></div>
+				<% } %> <% } %>
+			</div>
 			<div class="col-lg-12 blog-post-single">
 				<div class="blog-author">
 					<div class="author-bio">

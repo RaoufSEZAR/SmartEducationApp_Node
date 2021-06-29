@@ -10,9 +10,12 @@ exports.createCourse = async (req, res) => {
 			category: req.body.category,
 			user: req.session.userID,
 		});
+		req.flash("success", `${course.name} has been created succesfully`);
 
-		res.status(201).redirect("/courses");
+		res.status(201).redirect("/users/dashboard");
 	} catch (error) {
+		req.flash("error", `Something happened! like: ${error}`);
+
 		res.status(400).json({ status: "fail", error });
 	}
 };
@@ -54,7 +57,7 @@ exports.getAllCourses = async (req, res) => {
 			page_name: "courses",
 		});
 	} catch (error) {
-		res.status(400).json({ status: "fail", error });
+		res.status(400).redirect("/courses");
 	}
 };
 
