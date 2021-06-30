@@ -45,7 +45,8 @@ app.use(
 		resave: false,
 		saveUninitialized: true,
 		store: MongoStore.create({
-			mongoUrl: "mongodb://localhost:27017/smartEducation",
+			mongoUrl:
+				"mongodb+srv://raoufsato:raoufsato@cluster0.ihfi0.mongodb.net/smartEducation?retryWrites=true&w=majority?authSource=smartEducation=1",
 		}),
 	})
 );
